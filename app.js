@@ -7,7 +7,8 @@ function getCriticalWordsFromString(string) {
     string = ' ' + string.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '').toLowerCase() + ' '
     let resultRsdb = searchDbAndCountWordOccurence(slurs_db_rsdb, string, "Racial Slur Database")
     let resultHurtlexDe = searchDbAndCountWordOccurence(slurs_db_hurtlex_de, string, "Hurtlex DE")
-    return resultRsdb.concat(resultHurtlexDe)
+    let resultHurtlexEn = searchDbAndCountWordOccurence(slurs_db_hurtlex_en, string, "Hurtlex EN")
+    return resultRsdb.concat(resultHurtlexDe).concat(resultHurtlexEn)
 }
 
 function searchDbAndCountWordOccurence(db, string, source) {
